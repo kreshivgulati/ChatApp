@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: #f0f2f5;
+  height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ced0d1;
+  border-radius: 4px;
+}
+
+@keyframes bounce {
+
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(-5px);
+  }
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: #6e7979;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.sidebar-item:hover .delete-btn {
+  opacity: 0.7;
+}
+
+.delete-btn:hover {
+  opacity: 1 !important;
+  background: #fdeded !important;
+  transform: scale(1.1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+:root {
+  /* Light Theme - Pure White Background */
+  --bg-primary: #ffffff;
+  --bg-secondary: #ffffff;
+  --bg-sidebar: #eceef1;
+  --bg-search-wrap: #f2f4f7;
+  --bg-search-input: #e0e3e6;
+  --text-primary: #191c1e;
+  --text-secondary: #6e7979;
+  --border-color: #bec9c9;
+  --border-subtle: #e0e3e6;
+  --message-bg-incoming: #ffffff;
+  --message-text-incoming: #191c1e;
+  --message-bg-outgoing: #d9fdd3;
+  --message-text-outgoing: #191c1e;
+  --topbar-bg: #eceef1;
+  --inputbar-bg: #eceef1;
+  --input-bg: #ffffff;
+  --bg-dot-pattern: #d1d7db;
+  --tick-color: #005153;
+  --sidebar-hover-bg: rgba(0, 0, 0, 0.04);
+  --theme-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, border-bottom-color 0.2s ease;
+  --modal-bg: rgba(0, 0, 0, 0.45);
+  --modal-card-bg: #ffffff;
+  --modal-border: #bec9c9;
+}
+
+[data-theme='dark'] {
+  /* Dark Theme - Pure Black Background */
+  --bg-primary: #000000;
+  --bg-secondary: #000000;
+  --bg-sidebar: #101012;
+  --bg-search-wrap: #000000;
+  --bg-search-input: #1a1a1c;
+  --text-primary: #ffffff;
+  --text-secondary: #8e8e93;
+  --border-color: #242426;
+  --border-subtle: #1c1c1e;
+  --message-bg-incoming: #1c1c1e;
+  --message-text-incoming: #ffffff;
+  --message-bg-outgoing: #005153;
+  --message-text-outgoing: #ffffff;
+  --topbar-bg: #101012;
+  --inputbar-bg: #101012;
+  --input-bg: #000000;
+  --bg-dot-pattern: #18181a;
+  --tick-color: #06D755;
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.06);
+  --modal-bg: rgba(0, 0, 0, 0.85);
+  --modal-card-bg: #101012;
+  --modal-border: #242426;
+}
+
+body, 
+div, 
+button, 
+input, 
+textarea, 
+p, 
+span {
+  transition: var(--theme-transition);
+}
+
+@keyframes pulse-join {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); box-shadow: 0 4px 14px rgba(34,197,94,0.5); }
+  100% { transform: scale(1); }
+}
+.pulse-join-btn {
+  animation: pulse-join 2s infinite ease-in-out;
+}
