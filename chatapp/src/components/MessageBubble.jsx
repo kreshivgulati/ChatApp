@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 
-const API = 'http://localhost:5000';
+const API = import.meta.env.VITE_API_URL;
 
 export default function MessageBubble({ message, onDelete, isGroup }) {
   const { user } = useAuth();
@@ -36,11 +36,11 @@ export default function MessageBubble({ message, onDelete, isGroup }) {
   }
 
   return (
-    <div 
-      style={{ 
-        display: 'flex', 
+    <div
+      style={{
+        display: 'flex',
         flexDirection: 'column',
-        alignItems: isMe ? 'flex-end' : 'flex-start', 
+        alignItems: isMe ? 'flex-end' : 'flex-start',
         marginBottom: 4,
         position: 'relative',
         width: '100%'
@@ -50,12 +50,12 @@ export default function MessageBubble({ message, onDelete, isGroup }) {
     >
       {/* Group Sender Name above the bubble */}
       {isGroup && !isMe && (
-        <div style={{ 
-          fontSize: 11, 
-          color: '#005153', 
-          fontWeight: 600, 
-          marginBottom: 2, 
-          marginLeft: message.file_url ? 36 : 40 
+        <div style={{
+          fontSize: 11,
+          color: '#005153',
+          fontWeight: 600,
+          marginBottom: 2,
+          marginLeft: message.file_url ? 36 : 40
         }}>
           {message.sender?.name}
         </div>
@@ -64,20 +64,20 @@ export default function MessageBubble({ message, onDelete, isGroup }) {
       {/* Row containing Avatar (if group remote) and Bubble */}
       <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, width: '100%', justifyContent: isMe ? 'flex-end' : 'flex-start' }}>
         {isGroup && !isMe && (
-          <img 
-            src={message.sender?.avatar || '/default-avatar.png'} 
-            alt="" 
-            style={{ 
-              width: 26, 
-              height: 26, 
-              borderRadius: '50%', 
-              objectFit: 'cover', 
+          <img
+            src={message.sender?.avatar || '/default-avatar.png'}
+            alt=""
+            style={{
+              width: 26,
+              height: 26,
+              borderRadius: '50%',
+              objectFit: 'cover',
               flexShrink: 0,
-              marginBottom: 2 
-            }} 
+              marginBottom: 2
+            }}
           />
         )}
-        
+
         <div style={{ maxWidth: '68%', position: 'relative' }}>
           {isMe && hovered && (
             <button
@@ -149,7 +149,7 @@ export default function MessageBubble({ message, onDelete, isGroup }) {
 
             {/* General File / Document */}
             {message.file_url && !isImage && !isVideo && (
-              <div 
+              <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',

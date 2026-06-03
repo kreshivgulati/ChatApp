@@ -5,7 +5,7 @@ import MessageBubble from './MessageBubble';
 import { useAuth } from '../context/AuthContext';
 import EmojiPicker from './EmojiPicker';
 
-const API = 'http://localhost:5000';
+const API = import.meta.env.VITE_API_URL;
 
 export default function ChatWindow({ socket, onStartCall }) {
   const { userId } = useParams();

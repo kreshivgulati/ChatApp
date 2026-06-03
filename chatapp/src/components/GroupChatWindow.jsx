@@ -6,7 +6,7 @@ import GroupInfoWindow from './GroupInfoWindow';
 import EmojiPicker from './EmojiPicker';
 import MessageBubble from './MessageBubble';
 
-const API = 'http://localhost:5000';
+const API = import.meta.env.VITE_API_URL;
 
 export default function GroupChatWindow({ socket, onStartGroupCall }) {
     const { groupId } = useParams();
@@ -184,7 +184,7 @@ export default function GroupChatWindow({ socket, onStartGroupCall }) {
         e.stopPropagation();
         if (onStartGroupCall && group) {
             // Find the call type from group or default to active call type
-            onStartGroupCall('video', group); 
+            onStartGroupCall('video', group);
         }
     };
 
@@ -288,8 +288,8 @@ export default function GroupChatWindow({ socket, onStartGroupCall }) {
         <div style={styles.container}>
             {/* Header */}
             <div style={styles.topBar}>
-                <div 
-                    onClick={() => setShowInfo(true)} 
+                <div
+                    onClick={() => setShowInfo(true)}
                     title="Click to view group details & settings"
                     style={{ display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer', flex: 1 }}
                 >
@@ -304,17 +304,17 @@ export default function GroupChatWindow({ socket, onStartGroupCall }) {
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                     {activeGroupCall && (
-                        <button 
-                            onClick={joinActiveCall} 
+                        <button
+                            onClick={joinActiveCall}
                             className="pulse-join-btn"
-                            style={{ 
-                                background: '#22c55e', 
-                                color: 'white', 
-                                border: 'none', 
-                                borderRadius: 20, 
-                                padding: '6px 14px', 
-                                fontSize: 12, 
-                                fontWeight: 600, 
+                            style={{
+                                background: '#22c55e',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: 20,
+                                padding: '6px 14px',
+                                fontSize: 12,
+                                fontWeight: 600,
                                 cursor: 'pointer',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -344,11 +344,11 @@ export default function GroupChatWindow({ socket, onStartGroupCall }) {
                     <div style={styles.noMsg}>No messages yet. Start the conversation! 👋</div>
                 )}
                 {messages.map(msg => (
-                    <MessageBubble 
-                        key={msg.id} 
-                        message={msg} 
-                        onDelete={handleDeleteMessage} 
-                        isGroup={true} 
+                    <MessageBubble
+                        key={msg.id}
+                        message={msg}
+                        onDelete={handleDeleteMessage}
+                        isGroup={true}
                     />
                 ))}
                 {typingUser && (

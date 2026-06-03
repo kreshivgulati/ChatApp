@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import CreateGroupModal from './CreateGroupModal';
 
-const API = 'http://localhost:5000';
+const API = import.meta.env.VITE_API_URL;
 
 export default function Sidebar({ socket }) {
   const { user, logout } = useAuth();
@@ -730,12 +730,12 @@ const styles = {
   contactRow: { display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 3 },
   contactTime: { fontSize: 11, fontWeight: 600, color: 'var(--text-secondary)', flexShrink: 0 },
   newChatBtn: { margin: '12px', background: '#005153', color: 'white', border: 'none', borderRadius: 8, padding: '12px', fontSize: 13, fontWeight: 500, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 },
-  sectionHeader: { 
-    padding: '8px 16px 4px', 
-    fontSize: 10, 
-    fontWeight: 700, 
-    color: '#005153', 
-    textTransform: 'uppercase', 
+  sectionHeader: {
+    padding: '8px 16px 4px',
+    fontSize: 10,
+    fontWeight: 700,
+    color: '#005153',
+    textTransform: 'uppercase',
     letterSpacing: 1.2,
     borderBottom: '1px solid var(--border-subtle)',
     background: 'rgba(0, 81, 83, 0.04)',

@@ -8,7 +8,7 @@ import GroupChatWindow from '../components/GroupChatWindow';
 import { useAuth } from '../context/AuthContext';
 import CallModal from '../components/CallModal';
 
-const SOCKET_URL = 'http://localhost:5000';
+const SOCKET_URL = import.meta.env.VITE_API_URL;
 
 export default function Chat() {
   const { user } = useAuth();

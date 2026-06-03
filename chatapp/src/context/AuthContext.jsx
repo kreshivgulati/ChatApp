@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const AuthContext = createContext();
 
-const API = 'http://localhost:5000';
+const API = import.meta.env.VITE_API_URL;
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -21,12 +21,12 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     window.location.href = `${API}/auth/logout`;
   };
-  
+
   const login = () => {
     setShowLoader(true);
     window.location.href = `${API}/auth/google`;
   };
-  
+
   return (
     <AuthContext.Provider value={{ user, loading, login, logout, showLoader, setShowLoader }}>
       {children}
