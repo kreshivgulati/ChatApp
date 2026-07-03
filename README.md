@@ -1,4 +1,4 @@
-# 💬 ChatApp
+# ChatApp
 
 A full-stack real-time chat application built with the MERN stack that enables users to communicate through private and group conversations. The application provides secure authentication, real-time messaging using Socket.IO, group management, file sharing, and an intuitive modern user interface.
 
